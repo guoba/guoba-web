@@ -1,0 +1,18 @@
+ ##$control.setTemplate("vmcommon/book.vm").setParameter('a',"aurl").setParameter('b', "burl")
+$control.setTemplate("bookList.vm")
+ <p>查看书籍</p>
+ <table width="50%"  border="0" cellspacing="0" cellpadding="10">
+       <tr>
+         <td width="10%"><lable>name:</lable>
+         </td>
+         <td  >$!book.name
+         </td>
+       </tr>
+        <tr>
+         <td  ><lable>price:</lable>
+         </td>
+         <td  >$!book.price
+         </td>
+       </tr>
+      
+     </table>

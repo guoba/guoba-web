@@ -1,0 +1,2 @@
+$page.setTitle("操作成功")
+<p>$!info!</p>

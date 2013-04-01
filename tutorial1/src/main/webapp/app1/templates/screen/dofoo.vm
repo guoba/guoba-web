@@ -1,0 +1,4 @@
+Count down.<br>
+#set ($count = 8)
+#include ("parsefoo.vm")
+<br>All done with dofoo.vm!

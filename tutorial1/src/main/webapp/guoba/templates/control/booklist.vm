@@ -1,0 +1,26 @@
+#set($count =1)
+#if($!booklist.size() > 0) 
+   <table width="50%"  border="1" cellspacing="0" cellpadding="10">
+<tr>
+<th>序号</th>
+<th>书名</th>
+<th>价格</th>
+<th>价格</th>
+<th>修改</th>
+<th>删除</th>
+</tr>
+#foreach ($book in $booklist)
+      <tr>
+        <td>$count</td>
+        <td>$book.name</td>
+        <td>$book.price</td>
+        <td><a href="$bookDetailLink.setTarget("book_detail.vm").addQueryData('bookId',$!book.bookId)">查看</a></td>
+        <td><a href="$guobaLink.setTarget("book.vm").addQueryData('bookId',$!book.bookId)">修改</a></td>
+        <td><a href="$guobaLink.setTarget("success.vm").addQueryData('action','bookAction').addQueryData('eventSubmitDoDelete','true').addQueryData('bookId',$!book.bookId)">删除</a></td>
+      </tr>
+    #set($count = $count + 1)
+#end
+ </table>
+#else 
+   <p> 还没有书籍!</p>
+#end 

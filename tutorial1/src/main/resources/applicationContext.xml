@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	
+    <bean id="bookService" class="com.alibaba.webx.tutorial1.guoba.module.service.BookService"/>
+    <bean id="cityService" class="com.alibaba.webx.tutorial1.guoba.CityService"/>
+    
+    <bean id="searchService" class="com.alibaba.webx.tutorial1.util.SearchService"/>
+
+	<bean id="concurrentSearchService" class="com.alibaba.webx.tutorial1.util.ConcurrentSearchService">
+	 	<property name="searchService">
+	 		<ref bean="searchService"/>
+	 	</property>
+	 </bean>
+
+</beans>

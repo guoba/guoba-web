@@ -1,0 +1,7 @@
+$page.setTitle("搜索")
+<h3>搜索参数</h3>
+<p>city:$!city</p>
+<p>category:$!category</p>
+<p>subcates:$!subcates</p>
+
+<p><a href="$searchBookList.setTarget("search_book_list.vm").addQueryData('city',$!city).addQueryData('category',$!category).addQueryData('subcates',$!subcates)">搜索</a></p>

@@ -1,0 +1,4 @@
+$page.setTitle("Hello, $name")
+
+<p>Hello, $name!</p>
+

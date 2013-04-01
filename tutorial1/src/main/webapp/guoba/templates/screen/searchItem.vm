@@ -1,0 +1,16 @@
+ <table width="50%"  border="1" cellspacing="0" cellpadding="10">
+<tr>
+<th>序号</th>
+<th>宝贝名</th>
+<th>价格</th>
+<th>来源</th>
+</tr>
+#foreach ($item in $items)
+      <tr>
+        <td>$velocityCount</td>
+        <td>$item.title</td>
+        <td>$item.price</td>
+        <td>#if($!item.type == 1) 集市  #else 天猫 #end</td>
+      </tr>
+#end
+ </table>

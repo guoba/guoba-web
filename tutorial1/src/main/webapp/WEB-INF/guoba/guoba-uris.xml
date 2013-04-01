@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:services="http://www.alibaba.com/schema/services"
+    xmlns:uris="http://www.alibaba.com/schema/services/uris"
+    xmlns="http://www.alibaba.com/schema/services/uris"
+    xmlns:uri-interceptors="http://www.alibaba.com/schema/services/uris/interceptors"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="
+        http://www.alibaba.com/schema/services http://localhost:8080/schema/services.xsd
+        http://www.alibaba.com/schema/services/uris http://localhost:8080/schema/services-uris.xsd
+        http://www.alibaba.com/schema/services/uris/interceptors http://localhost:8080/schema/services-uris-interceptors.xsd
+        http://www.springframework.org/schema/beans http://localhost:8080/schema/www.springframework.org/schema/beans/spring-beans.xsd
+    ">
+
+    <services:uris>
+    	
+        <uri id="guobaserver" requestAware="true" />
+		
+		<content-uri id="homeServer" exposed="true" extends="guobaserver">
+		    <prefixPath>/guoba</prefixPath>
+		</content-uri>
+		
+		
+		 <turbine-uri id="guobaLink" exposed="true" extends="guobaserver">
+            <componentPath>/guoba</componentPath>
+        </turbine-uri>
+        
+         <turbine-uri id="bookDetailLink" exposed="true" extends="guobaserver">
+            <componentPath>/guoba</componentPath>
+        </turbine-uri>
+        
+          <turbine-uri id="searchBookList" exposed="true" extends="guobaserver">
+            <componentPath>/guoba</componentPath>
+        </turbine-uri>
+        
+        <!--  
+        <turbine-uri id="bookDetailLink" exposed="true" extends="guobaserver">
+			<uri-interceptors:interceptor class="com.alibaba.webx.tutorial1.guoba.uri.interceptor.TargetReplacer">	     
+			 <beans:property name="serverURI">           
+			 	<beans:map>              
+			 		<beans:entry key="koubei" value="http://detail.koubei.com"></beans:entry>
+			 		<beans:entry key="taobao" value="http://detail.bendi.taobao.com"></beans:entry>                     
+			 	</beans:map>        
+			 </beans:property>        
+			 </uri-interceptors:interceptor>
+			<componentPath>/guoba</componentPath>
+		</turbine-uri>
+		
+		<turbine-uri id="searchBookList" exposed="true" extends="guobaserver">
+			<uri-interceptors:interceptor class="com.alibaba.webx.tutorial1.guoba.uri.interceptor.SearchTargetReplacer">
+			  <beans:property name="serverURI">           
+			 	<beans:map>              
+			 		<beans:entry key="koubei" value="http://detail.koubei.com"></beans:entry>
+			 		<beans:entry key="taobao" value="http://detail.bendi.taobao.com"></beans:entry>                     
+			 	</beans:map>        
+			 </beans:property>
+			 </uri-interceptors:interceptor>
+		</turbine-uri>
+		-->
+    </services:uris>
+
+</beans:beans>

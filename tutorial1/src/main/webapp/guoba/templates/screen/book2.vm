@@ -1,0 +1,51 @@
+#set($title="$!kbUriUtil.getGUID()")
+
+
+
+<form action="" method="post">
+  $csrfToken.hiddenField
+  <input type="hidden" name="action" value="book2_action"/>
+  
+  
+
+  <p>书籍管理</p>
+  
+   #if (!$csrfTokenError)<p> !$csrfTokenError </p>#end
+   #if (!$nameError)<p> !$nameError </p>#end
+   #if (!$priceError)<p> !$priceError </p>#end
+   #if ($errorMsg)<p> $!errorMsg </p>#end
+
+  <p>
+     <table width="50%"  border="0" cellspacing="0" cellpadding="10">
+       <tr>
+         <td width="10%"><lable>name:</lable>
+         </td>
+         <td  ><input type="text" name="book.name" value="$!book.name"/>
+         </td>
+       </tr>
+        <tr>
+         <td  ><lable>price:</lable>
+         </td>
+         <td  ><input type="text" name="book.price" value="$!book.price"/>
+         </td>
+       </tr>
+        <tr>
+         <td>&nbsp;
+         </td>
+         <td >
+                  #if($!bookId)
+                 <input type="hidden" name="bookId" value="$!bookId"/>
+                 <input type="submit" name="event_submit_do_update"/>
+                #else
+                 <input type="submit" name="event_submit_do_insert"/>
+                #end 
+         </td>
+       </tr>
+     </table>
+    <br/>
+   
+   
+    
+  </p>
+
+</form>

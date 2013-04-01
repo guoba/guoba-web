@@ -1,0 +1,10 @@
+#set( $list = ["pine", "oak", "maple"])
+ #foreach ($element in $list)
+       ## inner foreach 内循环
+       #foreach ($element in $list)
+       		This is $element. $velocityCount <br>inner<br>
+       #end
+       ## inner foreach 内循环结束
+    ## outer foreach
+    This is $element.$velocityCount <br>outer<br>
+#end

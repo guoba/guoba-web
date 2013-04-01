@@ -1,0 +1,59 @@
+#set($title="$!kbUriUtil.getGUID()")
+
+
+#if($!book) book is not null #end
+
+<form action="" method="post">
+  $csrfToken.hiddenField
+  <input type="hidden" name="action" value="book_action"/>
+  #set ($group = $form.book.defaultInstance)
+  
+  #if($!book)
+   
+    $group.mapTo($book)
+  #end
+  
+  
+
+  <p>书籍管理</p>
+  
+   #if (!$group.csrfToken.valid)<p> $group.csrfToken.message </p>#end
+   #if (!$group.name.valid)<p> $group.name.message </p>#end
+ 
+   #fromCheckMessage ($group.price)
+   #if ($errorMsg)<p> $!errorMsg </p>#end
+
+  <p>
+     <table width="50%"  border="0" cellspacing="0" cellpadding="10">
+       <tr>
+         <td width="10%"><lable>name:</lable>
+         </td>
+         <td  ><input type="text" name="$group.name.key" value="$!group.name.value"/>
+         </td>
+       </tr>
+        <tr>
+         <td  ><lable>price:</lable>
+         </td>
+         <td  ><input type="text" name="$group.price.key" value="$!group.price.value"/>
+         </td>
+       </tr>
+        <tr>
+         <td>&nbsp;
+         </td>
+         <td >
+                  #if($!bookId)
+                 <input type="hidden" name="bookId" value="$!bookId"/>
+                 <input type="submit" name="event_submit_do_update"/>
+                #else
+                 <input type="submit" name="event_submit_do_insert"/>
+                #end 
+         </td>
+       </tr>
+     </table>
+    <br/>
+   
+   
+    
+  </p>
+
+</form>
